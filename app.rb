@@ -10,4 +10,10 @@ class App < Sinatra::Base
     get '/' do
         slim :index
     end
+
+    get '/:group' do
+        group_name = params['group']
+        group = Group.get(group)
+        
+    end
 end
