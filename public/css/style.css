@@ -1,0 +1,36 @@
+body {
+    background-color:#F4F1F1; 
+    margin:0;
+
+
+}
+
+
+
+.nav {
+    background-color: #E4E3E3;
+    height:100px;
+
+}
+
+.grupper {
+    border:0px solid black;
+    height:auto;
+    padding:3px 0px;
+    text-align:center;
+    font-size:30px;
+
+
+}
+
+.logo {
+    opacity:1;
+    
+
+
+}
+.logo:hover{
+    opacity:0.5;
+
+
+}

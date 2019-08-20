@@ -1,3 +1,9 @@
-- for group in @groups
-    a href="/groups/#{group.id}"
-        article= group.name
+
+    - for group in @groups
+        .grupper
+            a href="/group/#{group.id}"
+                article= group.name
+
+
+
+   
