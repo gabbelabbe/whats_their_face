@@ -1,9 +1,4 @@
 class DbObject
-
-    def self.db_name(name)
-        @db = name
-    end
-
     def self.table_name(name)
         @table_name = name
     end
@@ -16,8 +11,7 @@ class DbObject
         end
     end
 
-    def self.join(other_table)
-        @join = "JOIN #{other_table[other_table.keys[0]]} ON #{}"
+    def self.db_name(db_name)
+        @db = db_name.to_s
     end
-    
 end

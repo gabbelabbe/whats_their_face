@@ -6,6 +6,8 @@ require 'bundler'
 # load all gems in Gemfile
 Bundler.require
 
+require_relative 'models/db_objects.rb'
+require_relative 'models/students.rb'
 require_relative 'app'
 
 run App
