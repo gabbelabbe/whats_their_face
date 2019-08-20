@@ -8,6 +8,7 @@ Bundler.require
 
 require_relative 'models/db_objects.rb'
 require_relative 'models/students.rb'
+require_relative 'models/group.rb'
 require_relative 'app'
 
 run App

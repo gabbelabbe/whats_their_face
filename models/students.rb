@@ -13,12 +13,11 @@ class Student < DbObject
         @name = db_array[1]
         @img_dir = db_array[2]
         @group_id = db_array[3]
-        @group_name = db_array[-1]
+        @group = db_array[-1]
     end
 
-    def self.get_students_of_group(group_name) #lägg till sökfunktion för gruppnamn
-        result = @db.execute("SELECT * FROM students JOIN group_name WHERE students.group_id = group_name.id
-            WHERE group_name.name = ?", group_name)
-        p result
+    def self.get_students_of_group(id) #lägg till sökfunktion för gruppnamn
+        results = @db.execute("SELECT * FROM students JOIN group_name ON students.group_id = group_name.id WHERE students.group_id = ?", id)
+        return results.map { |row| self.new(row) }
     end
 end

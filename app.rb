@@ -8,13 +8,13 @@ class App < Sinatra::Base
     use Rack::Flash
 
     get '/' do
-        Student.get_students_of_group("3A")
+        @groups = Group.all()
+        
         slim :index
     end
 
-    get '/:group' do
-        group_name = params['group']
-        group = Group.get(group)
-        
+    get '/group/:id' do
+        @students = Student.get_students_of_group("1")
+        slim :'group/index'
     end
 end

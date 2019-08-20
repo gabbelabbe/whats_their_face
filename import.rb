@@ -15,4 +15,4 @@ db.execute('CREATE TABLE students
 db.execute('DROP TABLE IF EXISTS group_name')
 db.execute('CREATE TABLE group_name
             (id INTEGER PRIMARY KEY AUTOINCREMENT,
-            group_name VARCHAR(255) NOT NULL UNIQUE)')
+            name VARCHAR(255) NOT NULL UNIQUE)')

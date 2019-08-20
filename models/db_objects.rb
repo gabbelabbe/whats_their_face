@@ -28,6 +28,7 @@ class DbObject
                 @join = ""
             end
         end
-        results = @db.execute("SELECT * FROM #{@table_name}")
+        results = @db.execute("SELECT * FROM #{@table_name} #{@join}")
+        return results.map { |row| self.new(row) }
     end
 end

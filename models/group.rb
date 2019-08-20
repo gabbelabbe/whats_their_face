@@ -1,21 +1,22 @@
 class Group < DbObject
-    attr_reader :id, :group_name
-    
-    def initialize(id, group_name)
-        self.id = id
-        self.group_name = group_name
-    end
+    attr_reader :id, :name
 
-    def self.all()
-        db = SQLite3::Database.new 'student_img.db'      
+    table_name :group_name
+    columns :id
+    columns :name
+    db_name 'students.db'
+    
+    def initialize(db_array)
+        @id = db_array[0]
+        @name = db_array[1]
     end
 end
 
 
-Group.all() -> Alla grupp objekt
-minGrupp.id -> gruppens id
-minGrupp.namn -> namnet på gruppen
+# Group.all() -> Alla grupp objekt
+# minGrupp.id -> gruppens id
+# minGrupp.namn -> namnet på gruppen
 
-#Students.all() -> alla elever
-Students.get_group("3b") -> alla elever i gruppen 3b
-minStudent.Whaterverafc -> whatever
+# Students.all() -> alla elever
+# Students.get_group("3b") -> alla elever i gruppen 3b
+# minStudent.Whaterverafc -> whatever
