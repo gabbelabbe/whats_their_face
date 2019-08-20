@@ -1,6 +1,6 @@
 require 'sqlite3'
 
-db = SQLite3::Database.new 'student_img.db'
+db = SQLite3::Database.new 'students.db'
 
 # Table for students
 db.execute('DROP TABLE IF EXISTS students')
