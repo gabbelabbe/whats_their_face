@@ -8,6 +8,7 @@ class App < Sinatra::Base
     use Rack::Flash
 
     get '/' do
+        Student.get_students_of_group("3A")
         slim :index
     end
 

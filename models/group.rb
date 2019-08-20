@@ -1,6 +1,5 @@
-require 'sqlite3'
-class Group
- #   attr_reader :id, :group_name
+class Group < DbObject
+    attr_reader :id, :group_name
     
     def initialize(id, group_name)
         self.id = id
@@ -10,12 +9,6 @@ class Group
     def self.all()
         db = SQLite3::Database.new 'student_img.db'      
     end
-
-    def self.get_students_of_group(group_name)
-
-    end
-
-
 end
 
 
