@@ -6,7 +6,7 @@ class Student < DbObject
     columns :name
     columns :img_dir
     columns :group_id
-    db_name 'students.db'
+    db_name 'students_test.db'
 
     def initialize(db_array)
         @id = db_array[0]
