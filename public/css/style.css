@@ -10,10 +10,11 @@ body {
 .nav {
     background-color: #E4E3E3;
     height:100px;
+    box-shadow:0px 1px 10px black ;
 
 }
 
-.grupper {
+.meny {
     border:0px solid black;
     height:auto;
     padding:3px 0px;
@@ -32,5 +33,54 @@ body {
 .logo:hover{
     opacity:0.5;
 
+
+}
+
+.elever {
+    text-align:center;
+    border:green 0px solid;
+    float:left;
+    height:350px;
+    width:33%;
+
+}
+.pbild {
+    padding: 0px 0px;
+    width:80%;
+    height:70%;
+    opacity: 1;
+    backface-visibility: hidden;
+    box-shadow: black 1px 2px 5px;
+
+
+}
+
+.whitespace {
+    border:0px solid black;
+    padding-left: 20%;
+    padding-right: 20%;
+
+
+}
+
+.elever:hover .pbild {
+    opacity: 0.3;
+  }
+  
+  .elever:hover .middle {
+    opacity: 1;
+  }
+
+
+.middle {
+  opacity: 0;
+  position:relative;
+  bottom:150px;
+  
+
+}
+.pil {
+    transform: rotate(180deg);
+    padding: 20px;
 
 }
