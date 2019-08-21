@@ -18,13 +18,14 @@ db.execute('CREATE TABLE group_name
             name VARCHAR(255) NOT NULL UNIQUE)')
 
 
-files = Dir.glob("public/img/*.{jpg}")
+directory = "public/img/students/"
+files = Dir.glob(directory + "*.{jpg}")
 image_dir = files.dup
 puts image_dir
 #file_names = Dir.entries("public/img")
 #puts file_names
 files.each do |x|
-    x.slice!("public/img/")
+    x.slice!(directory)
     x.slice!(".jpg") 
 end
 
@@ -33,7 +34,17 @@ names = []
 files.each do |x|
     arr = x.split(" ")
     groups << arr[0]
-    names << arr[1] + " " + arr[2]    
+
+    name = ""
+    i = 1
+    while i < arr.length
+        if(!name.eql?(""))
+            name += " "
+        end
+        name += arr[i]
+        i += 1
+    end
+    names << name    
 end
 puts image_dir
 #puts group
@@ -48,6 +59,6 @@ end
 i = 0
 while i < files.length
     group_id = unique_groups.index(groups[i])
-    db.execute("INSERT INTO students(group_id, name, img_dir) VALUES(?,?,?)", group_id, names[i], "public/img/" + files[i] + ".jpg")
+    db.execute("INSERT INTO students(group_id, name, img_dir) VALUES(?,?,?)", group_id, names[i], directory + files[i] + ".jpg")
     i += 1
 end
