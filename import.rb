@@ -59,6 +59,6 @@ end
 i = 0
 while i < files.length
     group_id = unique_groups.index(groups[i])
-    db.execute("INSERT INTO students(group_id, name, img_dir) VALUES(?,?,?)", group_id, names[i], directory + files[i] + ".jpg")
+    db.execute("INSERT INTO students(name, img_dir, group_id) VALUES(?,?,?)", names[i], directory + files[i] + ".jpg", group_id)
     i += 1
 end
