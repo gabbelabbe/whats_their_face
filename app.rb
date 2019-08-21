@@ -27,4 +27,8 @@ class App < Sinatra::Base
         @students = Student.get_students_of_group(id)
         slim :'group/index'
     end
+
+    get '/game' do
+        slim :game
+    end
 end
