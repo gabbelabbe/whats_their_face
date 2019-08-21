@@ -1,18 +1,20 @@
 class Student < DbObject
-    attr_reader :id, :name, :img_dir, :group_id, :group
+    attr_reader :id, :name, :img_dir, :group_id, :group, :description
 
     table_name :students
     columns :id
     columns :name
     columns :img_dir
+    columns :description
     columns :group_id
-    db_name 'students_test.db'
+    db_name 'students.db'
 
     def initialize(db_array)
         @id = db_array[0]
         @name = db_array[1]
         @img_dir = db_array[2]
-        @group_id = db_array[3]
+        @description = db_array[3]
+        @group_id = db_array[4]
         @group = db_array[-1]
     end
 

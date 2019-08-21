@@ -21,7 +21,7 @@ db.execute('CREATE TABLE group_name
 directory = "public/img/students/"
 files = Dir.glob(directory + "*.{jpg}")
 image_dir = files.dup
-puts image_dir
+#puts image_dir
 #file_names = Dir.entries("public/img")
 #puts file_names
 files.each do |x|
@@ -46,7 +46,7 @@ files.each do |x|
     end
     names << name    
 end
-puts image_dir
+#puts image_dir
 #puts group
 #puts names
 
@@ -56,9 +56,11 @@ for group in unique_groups
     db.execute("INSERT INTO group_name(name) VALUES(?)", group)
 end
 
+desc = File.readlines("desc.txt")
+
 i = 0
 while i < files.length
-    group_id = unique_groups.index(groups[i])
-    db.execute("INSERT INTO students(name, img_dir, group_id) VALUES(?,?,?)", names[i], directory + files[i] + ".jpg", group_id)
+    group_id = unique_groups.index(groups[i]) + 1
+    db.execute("INSERT INTO students(name, img_dir, description, group_id) VALUES(?,?,?,?)", names[i], "/img/students/" + files[i] + ".jpg", desc.sample.chomp, group_id)
     i += 1
 end

@@ -3,29 +3,11 @@
         - for student in @students
     
             .elever
-                img src='/img/TE4erinwells.jpg' class='pbild'
+                img src="#{student.img_dir}" class='pbild'
                     .middle 
                         .text 
-                            p Gillar att spela Fotboll
+                            p= student.description
+                    p= student.name.upcase
 
-                    p= student.name
-
-
-            .elever
-                img src='/img/TE4erinwells.jpg' class='pbild'
-                    .middle 
-                        .text 
-                            p Gillar att spela Fotboll
-
-                    p= student.name
-
-
-            .elever
-                img src='/img/TE4erinwells.jpg' class='pbild'
-                    .middle 
-                        .text 
-                            p Gillar att spela Fotboll
-
-                    p= student.name
     img src="/img/arrow.png" class="pil"
     h3 Ta musen över bild för mer information

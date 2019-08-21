@@ -14,7 +14,7 @@ class App < Sinatra::Base
     end
 
     get '/group/:id' do
-        @students = Student.get_students_of_group("1")
+        @students = Student.get_students_of_group(params["id"])
         slim :'group/index'
     end
 end

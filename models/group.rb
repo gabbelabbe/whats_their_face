@@ -4,7 +4,7 @@ class Group < DbObject
     table_name :group_name
     columns :id
     columns :name
-    db_name 'students_test.db'
+    db_name 'students.db'
     
     def initialize(db_array)
         @id = db_array[0]
