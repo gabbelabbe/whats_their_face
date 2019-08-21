@@ -13,8 +13,18 @@ class App < Sinatra::Base
         slim :index
     end
 
-    get '/group/:id' do
-        @students = Student.get_students_of_group(params["id"])
+    get '/group/:name' do
+        @groups = Group.all()
+        
+        id = nil
+        for group in @groups
+            if group.name == params["name"]
+                id = group.id
+                break
+            end
+        end
+
+        @students = Student.get_students_of_group(id)
         slim :'group/index'
     end
 end
