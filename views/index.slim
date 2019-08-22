@@ -1,6 +1,10 @@
-.klasser
-    h3 Klasser för  Chalmers Special Edition (C. S. E.)
-    - for group in @groups
-        .meny
-             a href="/group/#{group.name}"
-               article= group.name
+.whitespace1
+  .klasser
+      h3 Klasser för  Chalmers Special Edition (C. S. E.)
+      - for group in @groups
+          .meny
+              a.link href="/group/#{group.name}"
+                article= group.name
+      .meny
+        a.link href="/game"
+          article Quiz :)

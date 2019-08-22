@@ -5,8 +5,11 @@
 
         - if flash[:error] && flash[:error][:wrong]
             p.wrong= flash[:error][:wrong]
-
-        img.guess_img src="#{session[:right_name].img_dir}"
+        .gb
+            img.guess_img src="#{session[:right_name].img_dir}"
+            .middle 
+                .text_guess 
+                    p= session[:right_name].description
         - i = 0
         form action="/game" method="post"
             - while i < @all_names.size
