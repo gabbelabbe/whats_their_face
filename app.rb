@@ -74,4 +74,34 @@ class App < Sinatra::Base
         p flash
         redirect back
     end
+
+    get '/leogame' do
+        students = Student.all() { {join: "group_name"} }
+        # TODO: Kan välja samma person två gånger!!!
+        @cstudent = students.sample
+        @fstudent1 = students.sample
+        @fstudent2 = students.sample
+        @fstudent3 = students.sample
+        @shuffles = [@cstudent.name, @fstudent1.name, @fstudent2.name, @fstudent3.name]
+        @shuffles = @shuffles.shuffle
+        #p shuffles.shuffle 
+        #p cstudent.name
+        #p cstudent.img_dir
+        #p cstudent.img_dir 
+        #p shuffles
+        #@alternativsiffra = gets.chomp.to_i
+        #@shuffles[alternativsiffra]
+        #p shuffles[alternativsiffra]
+
+        slim :leogame
+    end
+
+    get '/legame:id' do
+        if @cstudent.name ==  @shuffles[alternativsiffra]
+            p "correct"
+        else    
+            p "fel"
+        end
+
+    end
 end
