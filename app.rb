@@ -78,32 +78,38 @@ class App < Sinatra::Base
     end
 
     get '/leogame' do
-        students = Student.all() { {join: "group_name"} }
+        if(session[:feedback] == nil)
+            @feedback = "" 
+        else 
+            @feedback = session[:feedback] 
+        end
+        
         # TODO: Kan välja samma person två gånger!!!
+        students = Student.all() { {join: "group_name"} }
         @cstudent = students.sample
         @fstudent1 = students.sample
         @fstudent2 = students.sample
         @fstudent3 = students.sample
-        @shuffles = [@cstudent.name, @fstudent1.name, @fstudent2.name, @fstudent3.name]
-        @shuffles = @shuffles.shuffle
-        #p shuffles.shuffle 
-        #p cstudent.name
-        #p cstudent.img_dir
-        #p cstudent.img_dir 
-        #p shuffles
-        #@alternativsiffra = gets.chomp.to_i
-        #@shuffles[alternativsiffra]
-        #p shuffles[alternativsiffra]
-
+        @choices = [@cstudent.name, @fstudent1.name, @fstudent2.name, @fstudent3.name]
+        @choices = @choices.shuffle
+        session[:correct_student] = @cstudent
+        session[:choices] = @choices
+        
         slim :leogame
     end
 
-    get '/legame:id' do
-        if @cstudent.name ==  @shuffles[alternativsiffra]
+    get '/leogame:guess' do
+        if(session[:correct_student] == nil)
+            redirect '/leogame' 
+        end
+            
+        guess = params[:guess]
+        if session[:correct_student] ==  session[:choices][guess]
+            session[:feedback] = "Correct!"
             p "correct"
         else    
+            session[:feedback] = "Better luck next time. The correct name is: " + session[:correct_student].name 
             p "fel"
         end
-
     end
 end
