@@ -2,11 +2,14 @@ p hello world
 
 
 .klasser
-    h3 Klasser för Hvitfeldtska Gymnasiet
+    h3 Get learnin! 
+
+    img src= @cstudent.img_dir
+
     -i = 0
-    -while i < @shuffles.length
+    -while i < @shuffles.lenght
         .meny
-             a href="/leogame/#{i}"
-               article= @shuffles[i]
-        i += 1 
+            a href="/leogame/#{i}"
+            article= @shuffles[i]
+        -i += 1 
         
