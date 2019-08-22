@@ -1,4 +1,6 @@
-- for group in @groups
-    .meny
-        a href="/group/#{group.name}"
-            article= group.name
+.klasser
+    h3 Klasser för Hvitfeldtska Gymnasiet
+    - for group in @groups
+        .meny
+             a href="/group/#{group.name}"
+               article= group.name
