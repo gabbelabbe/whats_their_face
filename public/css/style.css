@@ -99,3 +99,31 @@ body {
 
 
 }
+
+
+/* Game stuff */
+
+.game {
+    float:left;
+    background-color: black;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+}
+
+.game_img_container {
+    float: left;
+    background-color: plum;
+    width: 50%;
+    height: inherit;
+}
+
+.game_card_container {
+    float: left;
+    background-color: aqua;
+    width: 50%;
+    height: inherit;
+}
+
+.game_card {
+}
