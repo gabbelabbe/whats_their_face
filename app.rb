@@ -58,7 +58,7 @@ class App < Sinatra::Base
     post '/game' do
         error = {}
         success = {}
-        p params
+        
         guess = params["guess"]
 
         if guess == session[:right_name].name

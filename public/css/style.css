@@ -139,3 +139,59 @@ body {
 .right_img {
     float: right;
 }
+
+button {
+    padding: 0;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+    box-shadow:0px 1px 10px black ;
+    float: none;
+}
+
+.answer {
+    padding: 10px;
+    background-color: skyblue;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    color: #ffffff;
+    margin-top: 15px;
+    background-color: #939599;
+}
+
+.answer:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+
+.answer:hover {
+    transition: 0.5s;
+    color: #939599;
+    border-color: currentColor;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.guessing_form {
+    text-align: center;
+}
+
+.guess_img {
+    margin-top: 20px;
+    padding: 0px 0px;
+    width:50%;
+    height:50%;
+    opacity: 1;
+    backface-visibility: hidden;
+    box-shadow: black 1px 2px 5px;
+}

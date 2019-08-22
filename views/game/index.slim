@@ -1,13 +1,14 @@
-- if flash[:success] && flash[:success][:correct]
-    p.correct= flash[:success][:correct]
+.whitespace
+    .guessing_form
+        - if flash[:success] && flash[:success][:correct]
+            p.correct= flash[:success][:correct]
 
-- if flash[:error] && flash[:error][:wrong]
-    p.wrong= flash[:error][:wrong]
-    img.right_img src="#{flash[:error][:img]}"
+        - if flash[:error] && flash[:error][:wrong]
+            p.wrong= flash[:error][:wrong]
 
-img src="#{session[:right_name].img_dir}"
-- i = 0
-form action="/game" method="post"
-    - while i < @all_names.size
-        button type='submit' name="guess" value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
-        - i += 1
+        img.guess_img src="#{session[:right_name].img_dir}"
+        - i = 0
+        form action="/game" method="post"
+            - while i < @all_names.size
+                button class="answer" type='submit' name="guess" value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
+                - i += 1
