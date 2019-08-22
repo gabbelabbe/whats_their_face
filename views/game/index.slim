@@ -3,12 +3,11 @@
 
 - if flash[:error] && flash[:error][:wrong]
     p.wrong= flash[:error][:wrong]
+    img.right_img src="#{flash[:error][:img]}"
 
 img src="#{session[:right_name].img_dir}"
 - i = 0
 form action="/game" method="post"
-    select name='selected_name'
-        - while i < @all_names.size
-            option value="#{@all_names[i].name}" #{@all_names[i].name.capitalize}
-            - i += 1
-    button type='submit' Gissa vem!
+    - while i < @all_names.size
+        button type='submit' name="guess" value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
+        - i += 1
