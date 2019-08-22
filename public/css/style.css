@@ -127,3 +127,11 @@ body {
 
 .game_card {
 }
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}

@@ -29,6 +29,49 @@ class App < Sinatra::Base
     end
 
     get '/game' do
-        slim :game
+        @students = Student.all() { {join: 'group_name'} }
+        @students.shuffle
+
+        @all_names = []
+        4.times do
+            @all_names << @students[rand(@students.size)]
+        end
+
+        uniq_names = false
+        while uniq_names != true
+            @all_names = @all_names.uniq
+            if @all_names.size == 4
+                uniq_names = true
+            else
+                while @all_names.size < 4
+                    @all_names << @students[rand(@students.size)]
+                end
+            end
+        end
+
+        session[:right_name] = @all_names[0]
+        @all_names = @all_names.shuffle
+
+        slim :'game/index'
+    end
+
+    post '/game' do
+        error = {}
+        success = {}
+        guess = params["selected_name"]
+        p params
+        if guess == session[:right_name].name
+            success[:correct] = "Det va rätt gissning!"
+        else
+            error[:wrong] = "Det där va fel person! Det var #{session[:right_name].name.capitalize} men du gissade #{guess.capitalize}."
+        end
+        
+        if error.any?
+            flash[:error] = error
+        elsif success.any?
+            flash[:success] = success
+        end
+        p flash
+        redirect back
     end
 end
