@@ -8,7 +8,7 @@
                         .text 
                             p= student.description
                     .studentnamn
-                          p= student.name.upcase  
+                          p= student.name.split(/ |\_|\-/).map(&:capitalize).join(" ")  
 
     img src="/img/arrow.png" class="pil"
     h3 Ta musen över bild för mer information

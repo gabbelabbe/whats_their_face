@@ -18,8 +18,10 @@ body {
     border:0px solid black;
     height:auto;
     padding:3px 0px;
+
     text-align:center;
     font-size:30px;
+    
 
 
 }
@@ -27,6 +29,7 @@ body {
 .klasser {
     text-align:center;
     border:0px solid black;
+    margin-top: 130px;
 
 
 }
@@ -89,7 +92,8 @@ body {
 }
 .pil {
     transform: rotate(180deg);
-    padding: 20px;
+    padding: 15px 0px;
+    
 
 }
 
@@ -134,4 +138,8 @@ body {
 
 .wrong {
     color: red;
+}
+
+.right_img {
+    float: right;
 }
