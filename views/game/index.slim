@@ -7,7 +7,8 @@
 
 img src="#{session[:right_name].img_dir}"
 - i = 0
-form action="/game" method="post"
-    - while i < @all_names.size
-        button type='submit' name="guess" value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
-        - i += 1
+.knapp
+    form action="/game" method="post"
+         - while i < @all_names.size
+            button type='submit' name="guess" value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
+             - i += 1
