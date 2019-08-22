@@ -58,12 +58,14 @@ class App < Sinatra::Base
     post '/game' do
         error = {}
         success = {}
-        guess = params["selected_name"]
         p params
+        guess = params["guess"]
+
         if guess == session[:right_name].name
             success[:correct] = "Det va rätt gissning!"
         else
             error[:wrong] = "Det där va fel person! Det var #{session[:right_name].name.split(/ |\_|\-/).map(&:capitalize).join(" ")} men du gissade #{guess.split(/ |\_|\-/).map(&:capitalize).join(" ")}."
+            error[:img] = "#{session[:right_name].img_dir}"
         end
         
         if error.any?
@@ -71,7 +73,7 @@ class App < Sinatra::Base
         elsif success.any?
             flash[:success] = success
         end
-        p flash
+
         redirect back
     end
 

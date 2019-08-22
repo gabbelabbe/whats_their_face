@@ -135,3 +135,7 @@ body {
 .wrong {
     color: red;
 }
+
+.right_img {
+    float: right;
+}
