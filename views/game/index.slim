@@ -9,6 +9,6 @@ img src="#{session[:right_name].img_dir}"
 form action="/game" method="post"
     select name='selected_name'
         - while i < @all_names.size
-            option value="#{@all_names[i].name}" #{@all_names[i].name.capitalize}
+            option value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
             - i += 1
     button type='submit' Gissa vem!

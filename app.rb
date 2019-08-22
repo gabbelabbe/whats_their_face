@@ -63,7 +63,7 @@ class App < Sinatra::Base
         if guess == session[:right_name].name
             success[:correct] = "Det va rätt gissning!"
         else
-            error[:wrong] = "Det där va fel person! Det var #{session[:right_name].name.capitalize} men du gissade #{guess.capitalize}."
+            error[:wrong] = "Det där va fel person! Det var #{session[:right_name].name.split(/ |\_|\-/).map(&:capitalize).join(" ")} men du gissade #{guess.split(/ |\_|\-/).map(&:capitalize).join(" ")}."
         end
         
         if error.any?
