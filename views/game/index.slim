@@ -6,9 +6,19 @@
         - if flash[:error] && flash[:error][:wrong]
             p.wrong= flash[:error][:wrong]
 
+<<<<<<< HEAD
         img.guess_img src="#{session[:right_name].img_dir}"
         - i = 0
         form action="/game" method="post"
             - while i < @all_names.size
                 button class="answer" type='submit' name="guess" value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
                 - i += 1
+=======
+img src="#{session[:right_name].img_dir}"
+- i = 0
+.knapp
+    form action="/game" method="post"
+         - while i < @all_names.size
+            button type='submit' name="guess" value="#{@all_names[i].name}" #{@all_names[i].name.split(/ |\_|\-/).map(&:capitalize).join(" ")}
+             - i += 1
+>>>>>>> 9a975899d5fb86e90aa1c77ef8a012533e2a302c
