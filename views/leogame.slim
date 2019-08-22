@@ -1,15 +1,14 @@
-p hello world
-
-
 .klasser
-    h3 Get learnin! 
+  h3 Get learnin! 
+  h2= @feedback
 
-    img src= @cstudent.img_dir
+  img src= @cstudent.img_dir
 
-    -i = 0
-    -while i < @shuffles.lenght
-        .meny
-            a href="/leogame/#{i}"
-            article= @shuffles[i]
-        -i += 1 
+  -i = 0
+  -while i < @choices.length
+      .meny
+          a href="/leogame/#{i}" style='text-decoration: none; color: black;'
+            div style='width: auto; border-radius: 30px; background-color: rgb(82, 82, 82);'
+              article= @choices[i]
+      -i += 1 
         

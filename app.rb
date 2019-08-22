@@ -79,7 +79,7 @@ class App < Sinatra::Base
 
     get '/leogame' do
         if(session[:feedback] == nil)
-            @feedback = "" 
+            @feedback = ""
         else 
             @feedback = session[:feedback] 
         end
@@ -98,18 +98,17 @@ class App < Sinatra::Base
         slim :leogame
     end
 
-    get '/leogame:guess' do
+    get '/leogame/:guess' do
         if(session[:correct_student] == nil)
             redirect '/leogame' 
         end
             
         guess = params[:guess]
-        if session[:correct_student] ==  session[:choices][guess]
+        if session[:correct_student].name.eql?(session[:choices][guess.to_i])
             session[:feedback] = "Correct!"
-            p "correct"
         else    
             session[:feedback] = "Better luck next time. The correct name is: " + session[:correct_student].name 
-            p "fel"
         end
+        redirect '/leogame'
     end
 end
